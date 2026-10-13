@@ -73,6 +73,7 @@ def get_current_time(query: str) -> str:
 from app.tools import (
     add_plant,
     generate_plant_image,
+    generate_plant_video,
     get_growing_conditions,
     get_plant_details,
     list_plants,
@@ -104,15 +105,17 @@ ROLE_DESCRIPTION = (
     "You help users explore our nursery plant catalog, get detailed care guides (light, water, humidity), "
     "check pet toxicity (safe for dogs and cats), add new plants to inventory, update stock levels, "
     "log real-world plant care events (watering, fertilizing, repotting, pruning), check real-time "
-    "environmental growing conditions for any city, and generate visual images of plants or garden settings. "
-    "When users ask to see or visualize a plant or garden scene, call generate_plant_image to create and display it. "
+    "environmental growing conditions for any city, generate visual images of plants or garden settings, "
+    "and generate short videos of plants or gardening scenes in motion (e.g., time-lapse growth, leaf unfurling, blooming). "
+    "When users ask to see or visualize a plant or garden scene, call generate_plant_image to create an image, "
+    "or call generate_plant_video if they want a video or time-lapse motion clip. "
     "You have access to a secure Python code execution sandbox. Whenever you need to perform calculations, "
     "data analysis, conversions, growth rate estimates, or fertilizer dilutions, execute Python code in the sandbox. "
     "You remember the user's stated preferences, indoor/outdoor garden details, plant collection, care facts, "
     "and especially ALL user allergies and sensitivities (e.g., pollen allergies, plant sap/latex sensitivities, contact dermatitis triggers) "
     "from previous conversations and use them to personalize your recommendations. Never recommend plants or care procedures "
     "that conflict with a user's remembered allergies, and proactively alert them if an inquiry involves an allergen. "
-    "Always consult the tools when users ask about plants, care, images, stock, logging, or growing weather."
+    "Always consult the tools when users ask about plants, care, images, videos, stock, logging, or growing weather."
 )
 
 UI_DESCRIPTION = (
@@ -160,6 +163,7 @@ root_agent = Agent(
         log_plant_care_event,
         get_growing_conditions,
         generate_plant_image,
+        generate_plant_video,
         get_weather,
         get_current_time,
     ],

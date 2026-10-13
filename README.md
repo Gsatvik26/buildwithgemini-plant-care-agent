@@ -2,6 +2,8 @@
 
 A full-stack, agent-first assistant that helps gardeners and plant enthusiasts care for plants, explore nursery inventory, calculate care schedules, and visualize garden additions. Built with Google's **Agent Development Kit (ADK)**, powered by **Gemini 2.5 Flash**, and deployed to **Google Cloud Agent Platform**.
 
+![Sprout & Blossom Demo Video](demo.gif)
+
 ---
 
 ## 📖 Overview
